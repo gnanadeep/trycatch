@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Math Inputs</title>
-        <meta charset="utf-8">
-        <script type="text/javascript">
+
+<head>
+    <title>Math Inputs</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
         "use strict";
-        
+
         var input1, input2;
         var firstNumber = 0;
         var secondNumber = 0;
@@ -14,54 +15,77 @@
 
         input1 = window.prompt("Please enter an Integer:");
 
-        try{
-            if(firstNumber = parseInt(input1)){
-               input2 = window.prompt("Please Enter another Integer: ");
-               if(secondNumber = parseInt(input2)){
-                   compareInputs(firstNumber, secondNumber);
-               } else{
-                   if(input2 ==""){ throw("Input Blank");}
-                   if(isNaN(input2)){ throw("Invalid Input Enter an integer")}
-                   else{trow("Input2 Not an integer.")}
-               }
-            } else{
-                if(input1 ==""){throw("Input Blank");}
-                if(isNaN(input1)){throw("Invalid Input. Enter an Integer")} 
-                else {throw("Input Not an Integer")}
+        try {
+            if (firstNumber = parseInt(input1)) {
+                input2 = window.prompt("Please Enter another Integer: ");
+                if (secondNumber = parseInt(input2)) {
+                    compareInputs(firstNumber, secondNumber);
+                } else {
+                    if (input2 == "") {
+                        throw ("Input Blank");
+                    }
+                    if (isNaN(input2)) {
+                        throw ("Invalid Input Enter an integer")
+                    } else {
+                        trow("Input2 Not an integer.")
+                    }
+                }
+            } else {
+                if (input1 == "") {
+                    throw ("Input Blank");
+                }
+                if (isNaN(input1)) {
+                    throw ("Invalid Input. Enter an Integer")
+                } else {
+                    throw ("Input Not an Integer")
+                }
             }
-        }catch(err){
+        } catch (err) {
             document.writeln("Invalid Input" + err + "Please Refresh page to try again.");
         }
 
-        function compareInputs(int, int2){
+        function compareInputs(int1, int2) {
             var smallNumber = 0;
             var bigNumber = 0;
 
-            switch(true){
-                case(int1 > int2):
-                    smallNumber=int2;
-                    document.write("<p>Input1 is greater than Input2 by "+(bigNumber - smallNumber) + "</P>");
+            switch (true) {
+                case (int1 > int2):
+                    smallNumber = int2;
+                    document.write("<p>Input1 is greater than Input2 by " + (bigNumber - smallNumber) + "</P>");
                     break;
-                case(int1 < int2):
-                    smallNumber=int1;
+                case (int1 < int2):
+                    smallNumber = int1;
                     bigNumber = int2;
-                    document.write("<p>Input2 is greater than Input1 by "+(bigNumber - smallNumber) + "</P>");
+                    document.write("<p>Input2 is greater than Input1 by " + (bigNumber - smallNumber) + "</P>");
                     break;
-                    default: 
+                default:
                     smallNumber = int2;
                     bigNumber = int1;
                     document.write("<p>Input is exactly equal to Input2 </p>");
                     break;
             }
-
-            doTheMath(smallNUmber,bigNumber);
-
+            doTheMath(smallNumber, bigNumber);
         }
 
+        function doTheMath(smallInput, bigInput) {
+            var totalOfNumbers = 0;
+            var randomNumber = 0;
+            document.write("<p>Sum of Input1 and Input2 is : " + (smallInput + bigInput) + "</p>");
+            document.write("<p>Product of Input1 and Input2 is : " + (smallInput * bigInput) + "</p>");
+            document.write("<p>squares of Input1 and Input2 is : " + (Math.pow(smallInput, 2)) + " and " +
+                Math.pow(bigInput, 2) + "</p>");
 
+            randomNumber = Math.floor(smallInput + (Math.random() * (bigInput - smallInput)));
+            document.write("<p>Random number generated in the range of Input1 and Input2 is: " +
+                (randomNumber) + "</p>");
 
+            for (var i = smallInput; i <= bigInput; i++) {
+                totalOfNumbers += i;
+            }
+            document.write("<p>Total of all the number between Input1 and Input2 is: " +
+                totalOfNumbers + "</p>");
+        }
+    </script>
+</head>
 
-
-        </script>
-    </head>
 </html>
