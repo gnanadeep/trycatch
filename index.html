@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Inputs</title>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        "use strict";
+        
+        var input1, input2;
+        var firstNumber = 0;
+        var secondNumber = 0;
+
+        document.writeln("<h1> Fun with Numbers</h1>");
+
+        input1 = window.prompt("Please enter an Integer:");
+
+        try{
+            if(firstNumber = parseInt(input1)){
+               input2 = window.prompt("Please Enter another Integer: ");
+               if(secondNumber = parseInt(input2)){
+                   compareInputs(firstNumber, secondNumber);
+               } else{
+                   if(input2 ==""){ throw("Input Blank");}
+                   if(isNaN(input2)){ throw("Invalid Input Enter an integer")}
+                   else{trow("Input2 Not an integer.")}
+               }
+            } else{
+                if(input1 ==""){throw("Input Blank");}
+                if(isNaN(input1)){throw("Invalid Input. Enter an Integer")} 
+                else {throw("Input Not an Integer")}
+            }
+        }catch(err){
+            document.writeln("Invalid Input" + err + "Please Refresh page to try again.");
+        }
+
+        function compareInputs(int, int2){
+            var smallNumber = 0;
+            var bigNumber = 0;
+
+            switch(true){
+                case(int1 > int2):
+                    smallNumber=int2;
+                    document.write("<p>Input1 is greater than Input2 by "+(bigNumber - smallNumber) + "</P>");
+                    break;
+                case(int1 < int2):
+                    smallNumber=int1;
+                    bigNumber = int2;
+                    document.write("<p>Input2 is greater than Input1 by "+(bigNumber - smallNumber) + "</P>");
+                    break;
+                    default: 
+                    smallNumber = int2;
+                    bigNumber = int1;
+                    document.write("<p>Input is exactly equal to Input2 </p>");
+                    break;
+            }
+
+            doTheMath(smallNUmber,bigNumber);
+
+        }
+
+
+
+
+
+        </script>
+    </head>
+</html>
